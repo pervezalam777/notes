@@ -123,9 +123,9 @@ Steps to get into the redis sever
 > docker ps
 > docker exec -it <redis-container-id> sh
 # redis-cli
-6379> GET visits
-6379> SET visits 1000
-6379> GET visits
+127.0.0.1:6379> GET visits
+127.0.0.1:6379> SET visits 1000
+127.0.0.1:6379> GET visits
 ```
        
 
