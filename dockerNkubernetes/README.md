@@ -16,7 +16,23 @@ To list all the container running and stoped since the docker running on the mac
 > docker ps --all
 ```
 
-To run dokcer image from dockerhub [dockerhub](https://hub.docker.com/)
+To create docker container. The following command will create container id
+```bash
+> docker create busybox echo "hello world"
+> 3e400af9c4591d...
+```
+
+To start docker container. Use container id generated from above command
+```bash
+> docker start 3e400af9c4591d...
+```
+
+To retrieve logs from the last run container which is useful for debugging purpose.
+```bash
+> docker logs 3e400af9c4591d...
+```
+
+To run dokcer image from dockerhub [dockerhub](https://hub.docker.com/). docker run command combines *docker create* and *docker start* commands 
 
 `> docker run <image-name>`
 
@@ -89,8 +105,29 @@ To debug runing contianer
 ```bash
 docker exec -it 3e400af9c4591d... sh
 ```
+- exec: run another command inside the container
+- -it: Allows us to provide inputs to the container
 
 In order to reach to the docker image localhost port use following
+
+### redis cli 
+redis is in-memory database and can be run using docker for getting and setting values
+
+Steps to get into the redis sever
+* step 1: Open terminal window and type the following command
+```bash
+> docker run redis
+```
+* step 2: Open another terminal window and type the following command
+```bash
+> docker ps
+> docker exec -it <redis-container-id> sh
+# redis-cli
+6379> GET visits
+6379> SET visits 1000
+6379> GET visits
+```
+       
 
 `> docker run -p <external port>:<internal port> <tag name>`
 
