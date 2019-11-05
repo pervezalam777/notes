@@ -2,7 +2,7 @@
 
 Docker and kubernetes are software which manage application orcastration using container with a VM behind the seen. Applicatoin made out of docker and kubernetes can be deployed on various cloud platforms. e.g. gcp, aws and azure.
 
-## Docker
+# Docker
 
 To find out running docker containers
 
@@ -165,3 +165,86 @@ There are four types of restart policies available with docker compose "no", alw
 
 ### NOTE: 
 * docker on window have some issue with watch for react application. If the project runs inside a virtual machine such as (a Vagrant provisioned) VirtualBox, create an .env file in your project directory if it doesn’t exist, and add CHOKIDAR_USEPOLLING=true to it. This ensures that the next time you run npm start, the watcher uses the polling mode, as necessary inside a VM.
+
+# Kubernetes
+* **Container** run docker image inside it.
+* **Node** is a kind of VM that can run one or more container inside it.
+* **Master** controls what each node does
+* **Nodes + Master** forms a cluster
+* **Load Balancer** handle out side request and relay those request on to the nodes
+* **kubectl** This is use for development and production. Use for managing containers in the node.
+* **minikube** Use for managing VM itself. It run and manage cluster environment on your local machine.
+* **Object** kubernetes yaml file creates object with type "pod", "service", "StatefulSet", and "ReplicaController"
+* **apiVersion** *apiVersion:v1* and *apiVersion:app/v1* each API version defines a defferent set of objects.
+
+## Minikube Setup on Windows Pro/Enterprise
+These instructions are for setting up and installing Minikube and its dependencies for use on Windows Pro or Enterprise with Docker Desktop and HyperV
+
+### Install Kubectl
+1. Create a new directory that you will move your kubectl binaries into. A good place would be C:\bin
+
+2. Download the latest kubectl executable from the link on the Kubernetes doc page:
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-windows
+
+3. Move this downloaded .exe file into the bin directory you created.
+
+4. Use Windows search to type “env” then select “Edit the system environment variables”
+
+5. In the System Properties dialog box, click “Environment Variables”.
+
+6. In System Variables click on the “Path” Variable and then click “Edit”
+
+7. Click “New” and then type C:\bin
+
+8. Drag the newly created path so that it is higher in order than Docker's binaries. This is very important and will ensure that you will not have an out of date kubectl client.
+
+9. Click "OK"
+
+10. Restart your terminal and test by typing kubectl into it. You should get the basic commands and help menu printed back to your screen. If this doesn't work try restarting your machine.
+
+11. Run kubectl version to verify that you are using the newest version and not the out of date v1.10 version
+
+### Install Minikube
+1. Download the Windows installer here:
+
+https://github.com/kubernetes/minikube/releases/latest/download/minikube-installer.exe
+
+2. Double click the .exe file that was downloaded and run the installer. All default selections are appropriate.
+
+3. Open up your terminal and test the installation by typing minikube. You should get the basic commands and help menu printed back to your screen. If this doesn't work try restarting your machine.
+
+### Configure HyperV
+1. In Windows Search type "HyperV" and select "HyperV Manager"
+
+2. In the right sidebar click "Virtual Switch Manager"
+
+3. Leave selected "New Virtual network Switch" and "External" and click "Create Virtual Switch"
+
+4. Name the switch "Minikube Switch" (or whatever you would like to name it)
+
+5. Click Apply and acknowledge the "Pending changes" dialog box by clicking "yes"
+
+6. Once the switch has been created, click "Ok"
+
+Starting Up Minikube
+Since by default Minikube expects VirtualBox to be used, we need to tell it to use the hyperv driver instead, as well as the Virtual Switch we created earlier.
+
+Start up a terminal as an Administrator. Then, in your terminal run:
+
+```bash
+> minikube start --vm-driver hyperv --hyperv-virtual-switch "Minikube Switch"
+```
+> Important note, all minikube commands must be run in the context of an elevated Administrator.
+
+
+### Docker compose vs kubernetes 
+**Docker compose** 
+* Each entry can optionally get docker-compose to build an image
+* Each entry represent a container that would get created
+* Each entry defines networking requirement ports
+
+**Kubernetes** 
+* expects all images to already built 
+* One config file per object should be created
+* Manual setup require for networking
