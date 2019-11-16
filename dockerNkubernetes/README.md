@@ -110,6 +110,27 @@ docker exec -it 3e400af9c4591d... sh
 
 In order to reach to the docker image localhost port use following
 
+
+docker volume is use to reference file/folder on local machine so that
+it does not require re-building of docker image each time there is a update in source code.
+
+```bash
+#syntax mac
+$ docker run -p 3000:3000 -v app/node_module -v $(pwd):/app <image id or tag name>
+
+#syntax windows
+> docker run -p 3000:3000 -v app/node_module -v ${pwd}:/app <image id or tag name>
+```
+
+**Notes:**    
+    pwd: present working directory
+    copy everything from pwd to /app folder
+
+```bash
+> docker run -p 3001:3000 -v /app/node_modules -v $(pwd):/app pervezalam777/frontend
+```
+    
+
 ### redis cli 
 redis is in-memory database and can be run using docker for getting and setting values
 
