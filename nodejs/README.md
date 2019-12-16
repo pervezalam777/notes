@@ -34,6 +34,7 @@ const cluster = require('cluster');
 
 if(cluster.isMaster){
     // Cause index.js to be executed *again* but in child mode
+    // Number of fork should either match physical CUP core or the logical cores.
     cluster.fork();
     cluster.fork();
 } else {
@@ -64,6 +65,6 @@ if(cluster.isMaster){
 # -n 500: total 500 request to localhost:3000/fast
 # -c 50: total number of concurrent request to localhost:3000/fast
 
-> ab -c 50 -n 500 localhost:3000/fast
+> ab -c 50 -n 500 localhost:3000/
 ```
 > ab is preinstalled with MacOS for windows find steps [here](https://www.cedric-dumont.com/2017/02/01/install-apache-benchmarking-tool-ab-on-windows/) 
