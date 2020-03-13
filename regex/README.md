@@ -356,15 +356,18 @@ let validIndianNumberRegexs = [
   regex6DigitLandline
 ];
 
-function validate(list) {
-  for (let phoneNumber of list) {
-    let vaildNumber = false;
-    for (let regex of validIndianNumberRegexs) {
-      vaildNumber = regex.test(phoneNumber);
-      if (vaildNumber === true) {
-        break;
-      }
+function validate(phoneNumber) {
+  for (let regex of validIndianNumberRegexs) {
+    if (regex.test(phoneNumber)) {
+      return true;
     }
+  }
+  return false;
+}
+
+function iterateAndPrintResult(list) {
+  for (let phoneNumber of list) {
+    let vaildNumber = validate(phoneNumber);
     let result = vaildNumber === true ? "valid" : "invalid";
     console.log(`${phoneNumber} is ${result}`);
   }
@@ -398,10 +401,10 @@ let invalidFormat = [
 ];
 
 console.log("Valid phone numbers $$$");
-validate(validFormat);
+iterateAndPrintResult(validFormat);
 
 console.log("                                  ");
 
 console.log("Invalid phone number $$$");
-validate(invalidFormat);
+iterateAndPrintResult(invalidFormat);
 ```
