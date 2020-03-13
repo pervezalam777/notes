@@ -308,13 +308,13 @@ let result = str.match(regex); // [ 'jhony jhony', 'tale tale' ]
 ```javascript
 let str = "I jump to like";
 let regex = /(jump)(.+)(like)/i
-let result = str.replace(regex, '$3$2$1');
+let result = str.replace(regex, '$3$2$1'); //I like to jump
 ```
 
 ```javascript
 let str = "2020-02-15"; //yyyy-mm-dd
 let regex = /(\d{4})-(\d{2})-(\d{2})/i 
-let result = str.replace(regex, '$2/$3/$1'); // mm/dd/yyyy
+let result = str.replace(regex, '$2/$3/$1'); // 02/15/2020 // mm/dd/yyyy
 ```
 
 ```javascript
@@ -329,3 +329,79 @@ let regex = /(\s{2,})/g
 let result = str.replace(regex, ' '); //'Remove extra spaces from sentence'
 ```
 
+## Most common regex used in applications
+
+### Regex for email validation
+
+```javascript
+let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+let email = "ab.ab@gmail.com";
+let result = regex.test(email); // true;
+```
+
+### Regex for phone number validation
+[Indian Phone number validation](https://codesandbox.io/s/prod-leftpad-6v5x7)
+
+```javascript
+// Indian mobile number
+let regexMobileNumber = /^((\+?(91|\(91\)){1}(-|\s)?\d{10})|(\d{10}))/;
+let regex8DigitLandline = /^((\+?(91|\(91\)){1}(-|\s)?\d{2}(-|\s)?\d{8})|(\d{2}(-|\s)?\d{8}))$/;
+let regex7DigitLandline = /^((\+?(91|\(91\)){1}(-|\s)?\d{3}(-|\s)?\d{7})|(\d{3}(-|\s)?\d{7}))$/;
+let regex6DigitLandline = /^((\+?(91|\(91\)){1}(-|\s)?\d{4}(-|\s)?\d{6})|(\d{4}(-|\s)?\d{6}))$/;
+
+let validIndianNumberRegexs = [
+  regexMobileNumber,
+  regex8DigitLandline,
+  regex7DigitLandline,
+  regex6DigitLandline
+];
+
+function validate(list) {
+  for (let phoneNumber of list) {
+    let vaildNumber = false;
+    for (let regex of validIndianNumberRegexs) {
+      vaildNumber = regex.test(phoneNumber);
+      if (vaildNumber === true) {
+        break;
+      }
+    }
+    let result = vaildNumber === true ? "valid" : "invalid";
+    console.log(`${phoneNumber} is ${result}`);
+  }
+}
+
+let validFormat = [
+  "+(91)9899736934",
+  "+(91) 9899756934",
+  "+(91)-9899756934",
+  "+919899726934",
+  "9899716934",
+  "+91 11 12345678",
+  "+91-11-12345678",
+  "11 12345678",
+  "11-12345678",
+  "1112345678",
+  "+91 222 1234567",
+  "91 222 1234567",
+  "222 1234567",
+  "+91 3333 123456",
+  "3333 123456"
+];
+
+let invalidFormat = [
+  "+(919899736934",
+  "+91)9899736934",
+  "+9899736934",
+  " 9899736934",
+  "-9899736934",
+  "+222 1234567"
+];
+
+console.log("Valid phone numbers $$$");
+validate(validFormat);
+
+console.log("                                  ");
+
+console.log("Invalid phone number $$$");
+validate(invalidFormat);
+```
