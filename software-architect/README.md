@@ -14,7 +14,7 @@ An Architect focus on the following baseline requirement
 
 
 ## Architect and Code
-An architect knows how to write gode code. An architect may require to work on a few critical part of system where it may also require some POCs before implementing those into the application. 
+An architect knows how to write good code. An architect may require to work on a few critical part of system where it may also require some POCs before implementing those into the application. 
 
 ## Architect Mindset
 An architect aquires deep knowledge of the organisation's business rather than design application in complete isolation of organisation goal. An architect must understand weaknesses, stresses, and growth strategy of the organisation.
@@ -29,7 +29,10 @@ An architect knows the application goals...
 
 
 
+## References
+* [Practical Guide to write technical specs](https://stackoverflow.blog/2020/04/06/a-practical-guide-to-writing-technical-specs/?utm_source=Iterable&utm_medium=email&utm_campaign=the_overflow_newsletter)
 
+<hr>
 
 
 > Please feel free to send [email](pervezalam777@gmail.com) about suggestion and changes
