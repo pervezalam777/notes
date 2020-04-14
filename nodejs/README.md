@@ -68,3 +68,9 @@ if(cluster.isMaster){
 > ab -c 50 -n 500 localhost:3000/
 ```
 > ab is preinstalled with MacOS for windows find steps [here](https://www.cedric-dumont.com/2017/02/01/install-apache-benchmarking-tool-ab-on-windows/) 
+
+
+## Reference
+* [Node best practices](https://github.com/goldbergyoni/nodebestpractices?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more)
+* [Designing a clean RESTful API with Node.js (Express + Mongo)](https://github.com/arcdev1/mm_express_api_example)
+* [DevMastery Comments Microservice API](https://github.com/dev-mastery/comments-api)
