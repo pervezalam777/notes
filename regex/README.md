@@ -331,6 +331,16 @@ let result = str.replace(regex, ' '); //'Remove extra spaces from sentence'
 
 ## Most common regex used in applications
 
+### Javascript: regex for XSS protection
+
+```javascript
+var isInlineJavascript = /^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*\:/i;
+
+isInlineJavascript.test('javascript:alert("XSS")') // true
+isJavaScriptProtocol.test(`j\ta\tv\ta\ts\tc\tr\ti\tp\tt:`) // true //same for \r\n
+isInlineJavascript.test('javascript') // false
+```
+
 ### Regex for email validation
 
 ```javascript
