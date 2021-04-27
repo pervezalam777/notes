@@ -1,6 +1,6 @@
 # HTML and CSS notes
 
-## Parse CSS
+## `Parse CSS`
 After loading HTML css gets loaded and parsed. During the parsing it does two important steps 
 1) Cascading (resolving conflicting CSS declarations) 
 2) Process final CSS value
@@ -8,7 +8,7 @@ After loading HTML css gets loaded and parsed. During the parsing it does two im
 DOM + CSSOM -> render tree : rendering tree uses the visual formating model for rending final render tree on browser.
 
 
-## Specificity
+## `Specificity`
 The following is the for catagories while calculating css specificity.
 1) Inline style
 2) IDs
@@ -16,7 +16,7 @@ The following is the for catagories while calculating css specificity.
 4) Element, pseudo-element
 
 
-## CSS value processing
+## `CSS value processing`
 The are following important points to know when using px, percentage, em, rem for defining font-size, padding, margin and dimensions.
 * Each property has an initial value, used if nothing is declared (and if there is no inheritance)
 * Browser specify a root font-size of each page (usually 16px)
@@ -28,7 +28,7 @@ The are following important points to know when using px, percentage, em, rem fo
 * rem are always measured relative to the document's root font-size
 * vh and vw are simply percentage measurements of the viewport's height and width 
 
-## BEM
+## `BEM`
 BEM stand for Block Element Modifier. BEM is a methodology for naming CSS class name. 
 
 > **BLOCK**: standalone component that is meaningful on its own <br/>
@@ -73,21 +73,21 @@ The following are the few example for the same.
 **recipe__hero**, **recipe__img**, **recipe__info** are element of **recipe** block <br/>
 **btn--round** is a modifier of **btn** block
 
-### Reference:
+### `Reference`
 * [BEM Naming](http://getbem.com/naming/) 
 * [Why you need BEM](https://www.smashingmagazine.com/2018/06/bem-for-beginners/)
 
 
-## Architect CSS
+## `Architect CSS`
 
-### Reference
+### `Reference`
 * [happy with your css file in big app?](https://medium.com/@albinotonnina/happy-with-your-css-files-in-your-big-app-ca03d51ed5bd)
 * [ITCSS architecture](https://dev.to/carlillo/understanding-itcss-real-case-using-itcss-in-a-ghostcms-blog-1p9b)
 * [SMACSS (Scalable and Modular Architect for CSS)](http://smacss.com/)
 * [The 7-1 pattern](https://sass-guidelin.es/#the-7-1-pattern)
 
 
-## Animation
+## `Animation`
 
 > clip-path : it can be use to create various shapes
 
