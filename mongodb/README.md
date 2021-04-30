@@ -1,5 +1,5 @@
 # Mongo DB
-Mongo db is a database system. It is NoSQL database, NoSQL stand for not only sql. Mongodb is schema less, it contains **collection** as tables and **document** as independent item in collection. these document look like JOSN object
+`Mongo db` is a database system. It is `NoSQL database`, NoSQL stand for `not only sql`. Mongodb is schema less, it contains **collection** as tables and **document** as independent item in collection. these document look like JOSN object
 
 ```bash
 # To stop mongo db server
@@ -12,13 +12,14 @@ Mongo db is a database system. It is NoSQL database, NoSQL stand for not only sq
 # Start mongo db server
 > mongod
 
-# list down all the dbs in the mongo server
+# List down all the dbs in the mongo server
 > show dbs
 
-# switch to database. it will create if the database does not exists.
+# Switch to database. it will create if the database does not exists.
+# shop is db name
 > use shop
 
-# insert data in to a collection
+# Insert data in to a collection
 > db.products.insertOne({"name": "A Book", "price": 12.99 })
 
 ### output
@@ -33,14 +34,14 @@ Mongo db is a database system. It is NoSQL database, NoSQL stand for not only sq
 
 ```
 
-### Document & CRUD Basics
+## **`Document & CRUD Basics`**
 ```bash
 # 
 >
 
 ```
 
-### Mongo security
+## **`Mongo security`**
 ```bash
 #
 > use admin
@@ -82,13 +83,13 @@ Mongo db is a database system. It is NoSQL database, NoSQL stand for not only sq
 > mongo --ssl --sslCAFile mongodb.pem --host localhost
 ```
 
-### Built-in Roles
-1) **Database user**: "read", and "readWrite"
-2) **Database Admin**: "dbAdmin", "userAdmin", and "dbOwner"
-3) **All Database Roles**: "readAnyDatabase", "readWriteAnyDatabase", "userAdminAnyDatabase", and "dbAdminAnyDatabase"
-4) **Cluster Admin**: "clusterManager", "clusterMonitor", "hostManager", and "clusterAdmin"
-5) **Backup/Restore**: "backup", and "restore"
-6) **Superuser**: "dbOwner(admin)", "userAdmin(admin)", and "userAdminAnyDatabaseRoot"
+## **`Built-in Roles`**
+1) **`Database user`**: `"read"`, and `"readWrite"`
+2) **`Database Admin`**: `"dbAdmin"`, `"userAdmin"`, and `"dbOwner"`
+3) **`All Database Roles`**: `"readAnyDatabase"`, `"readWriteAnyDatabase"`, `"userAdminAnyDatabase"`, and `"dbAdminAnyDatabase"`
+4) **`Cluster Admin`**: `"clusterManager"`, `"clusterMonitor"`, `"hostManager"`, and `"clusterAdmin"`
+5) **`Backup/Restore`**: `"backup"`, and `"restore"`
+6) **`Superuser`**: `"dbOwner(admin)"`, `"userAdmin(admin)"`, and `"userAdminAnyDatabaseRoot"`
 
 ### Notes:
 1) mongodb server does not directly store the data it talks to the **Storage Engine**. storage engine can be replaced based on the choice.

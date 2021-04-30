@@ -1,9 +1,12 @@
-# React Notes
+# React
 
-### Conceptually, React does work in `two phases`:
-
+## Conceptually, React does work in `two phases`:
 - The `render phase` determines what changes need to be made to e.g. the DOM. During this phase, React calls render and then compares the result to the previous render.
 - The `commit phase` is when React applies any changes. (In the case of React DOM, this is when React inserts, updates, and removes DOM nodes.) React also calls life-cycles like componentDidMount and componentDidUpdate during this phase.
+
+
+## **`React Server Component`**
+[RFC: React Server Components](https://github.com/reactjs/rfcs/blob/2b3ab544f46f74b9035d7768c143dc2efbacedb6/text/0000-server-components.md#why-not-use-asyncawait)
 
 ## References 
 - [Complete Guide to react rendering behavior](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)

@@ -9,3 +9,6 @@
 - `git branch %branch name%`
 - `git stash`
 - `git stash pop`
+
+## **`Useful github repositories`**
+- [**`Lerna`**](https://github.com/lerna/lerna): Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.

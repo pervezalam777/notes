@@ -1,4 +1,4 @@
-# Data Structure
+# `Data Structure`
 `A data structure is a way of organizing data so that it can be used effectively.`
 
 ## **`Abstract data type`**
@@ -19,18 +19,42 @@ The interface dow not give any specific details about how something should be im
 - `Space Complexity`: How much space does an algorithm need for its computation?
 
 
-## **`Big--O Notation`**
-`Big--O` Notation gives an `upper bound` of the complexity in the `worst case`, helping to `quantify performance` as the input `size becomes arbitrarily larger`.
+## **`Big O Notation`**
+`Big O` Notation gives an `upper bound` of the complexity in the `worst case`, helping to `quantify performance` as the input `size becomes arbitrarily larger`.
 
+### `Big O complexity in time`
 - Constant Time: `O(1)`
-- Logarithmic Time: `O(log(n))`
 - Learn Time: `O(n)`
+- Logarithmic Time: `O(log(n))`
 - Linearithmic Time: `O(nlog(n))`
 - Quadric Time: `O(n^2)`
 - Cubic Time: `O(n^3)`
 - Exponential Time: `O(b^n)`, b > 1
 - Factorial Time: `O(n!)`
 
+### `Big O calculation rules`
+1) `Worst case` (big O refers to worst case)
+2) `Remove constants` (as it become insignificant when input number grow)
+3) `Different term for input` (if function has more then one input and option are based on that then each input param is different term so big O(n + m) or O(n*m) would be the answer)
+4) `Drop none dominants` (if complexity is O(n + n^2) then n will be dropped and it will become O(n^2)) 
+
+### `What can cause time in complexity`
+- Operations (+,-,\\,*)
+- comparison (>, <, ==)
+- looping (for, while, do while)
+- outside function call (function())
+
+### `What causes space complexity`
+- Variables
+- Data structure
+- Function call
+- Allocation
+
+### [**`Big O cheat-sheet`**](https://www.bigocheatsheet.com/)
+
+--------
+
+# `Data Types`
 ## Linked list
 ## Stack
 ## Queues
@@ -50,3 +74,12 @@ The interface dow not give any specific details about how something should be im
 
 ## References
 - [`video:` Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer ](https://www.youtube.com/watch?v=RBSGKlAvoiM&t=455s)
+
+# Random
+- `Data Structures` + `Algorithms` = `Programs`
+- `What is good code?`
+  - `Readable`
+  - `Scalable`
+    - `Speed (or time)`
+    - `Memory`
+- `Premature optimization is evil `
