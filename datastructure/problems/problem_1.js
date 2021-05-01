@@ -20,13 +20,13 @@ console.log('should not get any pair: ', hasPairWithSum([1,2,4,4], 8) === true);
 console.log('-----------------------------------------------------------')
 
 function hasPairWithSum_2(data, sum) {
-  const hashMap = [];
+  const matchValueSet = new Set();
   for (let value of data){
-    let hasIndex = sum - value;
-    if(hashMap[hasIndex]){ 
+    let matchValue = sum - value;
+    if(matchValueSet.has(matchValue)){ 
       return true;
     }
-    hashMap[hasIndex] = value;
+    matchValueSet.add(matchValue);
   }
   return false;
 }

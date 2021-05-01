@@ -53,8 +53,48 @@ The interface dow not give any specific details about how something should be im
 ### [**`Big O cheat-sheet`**](https://www.bigocheatsheet.com/)
 
 --------
+# Operation performed on dataStructure
+- `Insertion`
+- `Deletion`
+- `Traversal`
+- `Searching`
+- `Sorting`
+- `Access`
 
-# `Data Types`
+
+# **`Data Types`**
+## **`Array`**
+`Stored data` in `contiguous(adjacent) memory` that is `in order`
+### **`Time complexity`**
+- Lookup(access) -- constant time : O(1) 
+- insert
+  - `Push` -- constant time :` O(1)` `or` leaner time : `O(n)` if array size grow underline implementation
+  - `unshift` -- linear time : `O(n)` 
+  - `splice` -- linear time :  `O(n)`
+  - `concat` -- liner time : `O(n)` 
+- delete
+  - `pop` -- constant time : `O(1)` // remove from last
+  - `unshift` -- linear time : `O(n)` 
+  - `splice` -- linear time :  `O(n)`
+- traverse
+  - `map` -- linear time : `O(n)`
+  - `forEach` -- linear time : `O(n)`
+  - `for, for let, while,` -- linear time : `O(n)`
+- Sort
+  - `sort` -- Linearithmic Time : `O(n log(n))` [as per stack overflow link](https://stackoverflow.com/questions/57763205/what-is-array-prototype-sort-time-complexity)
+- search
+  - `some` -- linear time : `O(n)` ? *verification pending
+  - `every` -- linear time : `O(n)` ? *verification pending 
+  - `indexOf` -- linear time : `O(n)`
+  - `findIndex` -- 
+  - `includes` -- linear time : `O(n)` ? *verification pending
+
+### **`Type of array`**
+#### **`Static Array`**
+size of the array defined while declaring array
+#### **`Dynamic Array`**
+start with some size and grow double in size if reach to the limit.
+
 ## Linked list
 ## Stack
 ## Queues
@@ -73,7 +113,8 @@ The interface dow not give any specific details about how something should be im
 ## AVL tree
 
 ## References
-- [`video:` Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer ](https://www.youtube.com/watch?v=RBSGKlAvoiM&t=455s)
+- [`Video:` Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer ](https://www.youtube.com/watch?v=RBSGKlAvoiM&t=455s)
+- [`WIKI`: list of data structures](https://en.wikipedia.org/wiki/List_of_data_structures)
 
 # Random
 - `Data Structures` + `Algorithms` = `Programs`
@@ -83,3 +124,4 @@ The interface dow not give any specific details about how something should be im
     - `Speed (or time)`
     - `Memory`
 - `Premature optimization is evil `
+- **`javascript doesn't have integer it uses 64bit float` :(validation pending) - if number over flow it return `Infinity` e.g. Math.pow(6, 1000) returns 'Infinity' --- Math.pow(10, 300) valid up till here
