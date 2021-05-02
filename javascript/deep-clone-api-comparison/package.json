@@ -1,21 +1,12 @@
 {
-  "name": "vanilla",
+  "name": "deep-clone",
   "version": "1.0.0",
-  "description": "JavaScript example starter project",
-  "main": "index.html",
+  "description": "deep clone test",
+  "type": "module",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "node ./src/index.js"
   },
   "dependencies": {
-    "lodash": "4.17.15"
-  },
-  "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
-  },
-  "keywords": [
-    "javascript",
-    "starter"
-  ]
+    "lodash": "^4.17.21"
+  }
 }

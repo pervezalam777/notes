@@ -1,4 +1,4 @@
-var _ = require("lodash");
+import _ from "lodash";
 
 export function cloneWithES6Spread(data) {
   let obj = { ...data };
