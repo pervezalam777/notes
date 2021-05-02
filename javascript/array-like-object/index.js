@@ -11,6 +11,7 @@ function FakeArray() {
       // http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype-@@iterator
       value: () => {
         let index = 0;
+        console.log('here......')
         return {
           next: () => ({
             done: index >= target.length,
@@ -29,36 +30,46 @@ function FakeArray() {
     return property === s && uint !== 0xffffffff;
   };
 
+  const setLength = function(target, value) {
+    // http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraysetlength
+    // TODO: there are several steps missing as per above link for implementation
+    const newLen = value >>> 0; // Unsigned right shift (>>>)
+    const numberLen = +value;
+    if (newLen !== numberLen) {
+      throw RangeError();
+    }
+    const oldLen = target.length;
+    if (newLen >= oldLen) {
+      target.length = newLen;
+      return true;
+    } else {
+      //TODO: this case gets more complex, so it's left as an exercise to the reader
+      return false; // should be changed when implemented!
+    }
+  }
+
+  const setValueAtIndex = function(target, property, value){
+    const oldLenDesc = Object.getOwnPropertyDescriptor(target, "length");
+    const oldLen = oldLenDesc.value;
+    const index = property >>> 0;
+    if (index > oldLen && oldLenDesc.writable === false) {
+      return false;
+    }
+    target[property] = value;
+    const newLen = index + 1;
+    if (newLen > oldLen) {
+      target.length = newLen;
+    }
+    return true;
+  }
+
   const proxy = new Proxy(target, {
     set: function(target, property, value, receiver) {
       // http://www.ecma-international.org/ecma-262/6.0/index.html#sec-array-exotic-objects-defineownproperty-p-desc
       if (property === "length") {
-        // http://www.ecma-international.org/ecma-262/6.0/index.html#sec-arraysetlength
-        const newLen = value >>> 0;
-        const numberLen = +value;
-        if (newLen !== numberLen) {
-          throw RangeError();
-        }
-        const oldLen = target.length;
-        if (newLen >= oldLen) {
-          target.length = newLen;
-          return true;
-        } else {
-          // this case gets more complex, so it's left as an exercise to the reader
-          return false; // should be changed when implemented!
-        }
+        return setLength(target, value)
       } else if (isArrayIndex(property)) {
-        const oldLenDesc = Object.getOwnPropertyDescriptor(target, "length");
-        const oldLen = oldLenDesc.value;
-        const index = property >>> 0;
-        if (index > oldLen && oldLenDesc.writable === false) {
-          return false;
-        }
-        target[property] = value;
-        if (index > oldLen) {
-          target.length = index + 1;
-        }
-        return true;
+        return setValueAtIndex(target, property, value)
       } else {
         target[property] = value;
         return true;
@@ -70,11 +81,21 @@ function FakeArray() {
 }
 
 let arr = new FakeArray();
+console.log('step 0 -> arr object created ', arr, 'length: ' ,arr.length);
+
 arr[0] = 10;
+console.log('step 1 -> ', arr, 'length: ' ,arr.length);
+
 arr[10] = 100;
+console.log('step 2 -> ', arr, 'length: ' ,arr.length);
+
 arr['some'] = 'value';
-console.log('arr---',arr);
-console.log('arr: length ', arr.length);
+console.log('step 3 -> ', arr, 'length: ' ,arr.length);
+
+arr.length = 15;
+console.log('step 4 -> ', arr, 'length: ' ,arr.length);
+
+console.log('iterate over items array');
 for(let item of arr) {
   console.log('item::', item);
 }
