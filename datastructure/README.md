@@ -1,10 +1,10 @@
-# `Data Structure`
+# **`Data Structure`**
 `A data structure is a way of organizing data so that it can be used effectively.`
 
 ## **`Abstract data type`**
 An abstract data type (ADT) is an abstraction of a data structure which provide only the interface to which a data structure must adhere to.
 
-The interface dow not give any specific details about how something should be implemented or in what programming language.
+The interface do not give any specific details about how something should be implemented or in what programming language.
 
 | Abstraction (ADT) | Implementation (DS)                                                       |
 | ------------------| ------------------------------------------------------------------------- |
@@ -35,7 +35,7 @@ The interface dow not give any specific details about how something should be im
 ### `Big O calculation rules`
 1) `Worst case` (big O refers to worst case)
 2) `Remove constants` (as it become insignificant when input number grow)
-3) `Different term for input` (if function has more then one input and option are based on that then each input param is different term so big O(n + m) or O(n*m) would be the answer)
+3) `Different term for input` (if function has more than one input and option are based on that, then each input param is different term so big O(n + m) or O(n*m) would be the answer)
 4) `Drop none dominants` (if complexity is O(n + n^2) then n will be dropped and it will become O(n^2)) 
 
 ### `What can cause time in complexity`
@@ -86,7 +86,7 @@ The interface dow not give any specific details about how something should be im
   - `some` -- linear time : `O(n)` ? *verification pending
   - `every` -- linear time : `O(n)` ? *verification pending 
   - `indexOf` -- linear time : `O(n)`
-  - `findIndex` -- 
+  - `findIndex` -- linear time : `O(n)` ? *verification pending
   - `includes` -- linear time : `O(n)` ? *verification pending
 
 ### **`Type of array`**
