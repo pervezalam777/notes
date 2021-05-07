@@ -101,7 +101,31 @@ start with some size and grow double in size if reach to the limit.
 ## Priority Queues
 ## Union Find (disjoint set)
 ## Binarys Tree and Binary Search trees (BTS)
-(pre-order, In-order, post-order & level order)
+- [`visualgo.net:` Play with bst](https://visualgo.net/bn/bst)
+- (pre-order, In-order, post-order & level order)
+
+Sample code
+```javascript
+//input: 4,6,7,9,10,3,2
+var arr = [6,3,9,2,4,7,10] // output
+/*
+            6 
+          /   \
+         /     \
+        3       9
+      /  \     /  \ 
+     2    4   7    10
+*/
+
+// left node index 2n + 1
+// right node index 2n + 2
+```
+`Rules`
+- All the right node value must be greater than root node value
+- All the left node value must be less than root node value
+- If duplicate value can be assigned than left or right node can be equal to root node value.
+
+
 ## Hash table
 ### Hash table separate chaining
 ### Hash table open addressing
