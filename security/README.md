@@ -1,7 +1,7 @@
 # Security
 
 ### Hashing 
-Hashing always generate same output based on the same input but it never provide a way to progressive password detection. Single character changed in password generates totally different hash which does not have any similarity with with respect to same characters. 
+Hashing always generate same output based on the same input but it never provide a way to progressive password detection. Single character changed in password generates totally different hash which does not have any similarity with respect to same characters. 
 
 
 ### Dictionary attack
