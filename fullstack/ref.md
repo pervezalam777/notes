@@ -1,0 +1,2 @@
+## References
+- [AZ.dev - The A to Z of software development notes](https://github.com/jscomplete/azdev) : An educational full-stack JavaScript project which uses Node.js, TypeScript, PostgreSQL, GraphQL, React.js, and the Apollo stack.
