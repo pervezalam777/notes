@@ -59,17 +59,22 @@ Feedback can be either positive or negative, and negative feedback brings us mor
 ### Transition
 A trigger and a guard are optional for a transition. For example, change can move to the next environment automatically if all feedbacks on the previous environment are positive; there's no specific trigger required. It can also happen that no guard is defined; for example, a developer would create a pull request even if the compilation failed.
 
-> Quick recap: Software development process can be represented as sequential introduction of changes. Every change transits trough several stages in order to reach production. At every stage, you have a number of feedback activities to check the quality of change.
+> Quick recap: 
+> - Software development process can be represented as sequential introduction of changes.
+> - Every change transits trough several stages in order to reach production. 
+> - At every stage, you have a number of feedback activities to check the quality of change.
 
----------------------------------------------------------
+<br/>
+
 # Feedback diagram
 Feedback diagram represent the one-way physical flow of a single code change. It's not a sequence of logical steps to develop and deploy a feature; It's a representation of the physical path to production, from one environment to another.
 
 ## Statement and Feedback activities
 It can be easily seen that the central element of the feedback diagram is a state. The state represents a stage or an environment where code changes exists at the moment.
-> state can be represented as a rounded rectangle divided in two sections 
-> - First section contains the unique name of the state to identify a part of the development process.
-> - second section contains feedback activities list the will be executed if code change belongs to the state.
+
+> State can be represented as a rectangle divided in two sections 
+> - First section(heading) contains the unique name of the state to identify a part of the development process.
+> - Second section(body) contains feedback activities list the will be executed if code change belongs to the state.
 
 ### Feedback diagram stage 1 (as pull request)
 
@@ -92,9 +97,9 @@ It can be easily seen that the central element of the feedback diagram is a stat
 
 ## Transition
 Transitions between states are represented as the arrow directed to the following state. Every transition can have a label with a trigger and a guard. A trigger and a guard are optional but add more value to make a robust system.
-> Trigger: initiate the transition and can be defined as action, e.g. a 'cron' expression, mail to concerned person, etc
+> `Trigger`: initiate the transition and can be defined as action, e.g. a 'cron' expression, CD pipeline, etc
 
-> Guard: is a condition with boolean operators to combine predicates and wrapped with square brackets e.g. [compiled and green unit tests and 90% coverage and no linting error and no new technical debt etc]
+> `Guard`: is a condition with boolean operators to combine predicates and wrapped with square brackets e.g. [compiled and green unit tests and 90% coverage and no linting error and no new technical debt etc]
 
 ## Example of states
 It's important to mention that the state doesn't always have one-to-one match to an environment in its usual understanding. 
@@ -103,6 +108,11 @@ General guidance that all feedback activities belong to the same state if:
 - Executed on the same operational unit;
 - belong to the same environment;
 - Executed sequentially one after another without a specific trigger
+
+
+## Fork and Joins
+While some of the feedback diagrams are a simple one-way cascade, you can have forks. The well-known example of a fork is a creation of release branch from the Master branch. As we have fork -- we could have a joins as well the example of the same is a hot-fix to a production issue which skip may skip several stages.
+
 --------------------------------------------------------
 
 
