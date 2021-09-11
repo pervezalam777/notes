@@ -23,3 +23,94 @@ Sometimes you just trying to complete the task on time and you knows that is not
 - `Clean code is expressive`: Clean code has meaningful names that are distinct and express their intensions. This expressiveness makes the code itself a document, which makes the need for separate document less important.
 
 - `Clean code is well thought out`: There are not confusing workarounds in clean code. Developers spend time finding good solutions that keep the language simple and easy to follow.
+
+## Naming general Rules 
+- `Reveal intention`: The name of a variable, function or class should tell you three things: Why it exists, what it does, and how it is used. if a name require a comment, then the name does not reveal its intent. e.g.
+```javaScript
+// The following variable does not reveal intention
+const d = 10;
+
+// The following variable does reveal intention
+const elapsedTimeInDays = 10;
+```
+
+- `Don't be cute`: Choose clarity over humor. Say what you mean, Mean what you say.
+
+- `Searchable names`: Names should be easy to locate across a body of text. if a name occurs in multiple places, it is imperative to give it a search-friendly name. Single-letter names should ONLY be used as local variable inside short methods.
+
+- `Avoid encoding`: Avoid hungarian notation, member prefixes, etc.
+
+- `One word one meaning`: Be consistent throughout your code by using one word per abstract concept. To eliminate confusion, use words that only have one meaning. e.g. it will be un-wise to select multiple names to do the same job at different files like get/fetch/retrieve; controller/manager/driver
+
+- `Meaningful distinctions`: When attempting to differentiate code, make distinctions that are meaningful without changing the searchability or intention of the code. For example, don't change the spelling because the name is already taken (class, klass, or clazz).
+
+- `Use pronounceable names`: It is easier to remember and discuss names that can pronounce For example: `genymdhms` vs `generationTimeStamp`
+
+## Naming coding related rules
+### `Length rule`: 
+The longer the scope of a function, the shorter its name should be. The longest function names should be given to those function that are called from just one place. Public API functions and classes usually have longer scopes so we should have short and well-defined name assigned to them.
+```javascript
+// The following code main look good but it breaks name length rule
+class AccountDataAccessObject extends BaseDataAccessObject {
+  findAccountByIdentifier(accountIdentifier){ ... }
+  savePublisherAccountData(accountData){ ... } 
+}
+
+// The following code look good too and do not break name length rule
+class AccountDAO extends BaseDAO { // AS AccountDAO has longest scope and DAO abbreviation can easily be understood
+  findByID(accountID) { ... } // it is short and tell you that this function can find account if account id is supplied
+  save(account) { ... } // it is short and tell you that it will save the account 
+}
+```
+
+Functions that are called locally from a few nearby places should have long descriptive names
+```javascript
+function getList(targetType) {
+  switch(targetType){
+    case BLACKLIST:
+      return computeBlackListDomainsFromDomainNames(domainNameList, comments);
+    case WHITELIST:
+      return computeWhileListDomainsFromDomainNames(domainNameList, comments);
+  }
+}
+
+function computeBlackListDomainsFromDomainNames(domainNames, comments) { ... }
+function computeWhileListDomainsFromDomainNames(domainNames, comments) { ... }
+```
+
+When it comes to naming variables and parameters it's the inverse of the scope law of methods and classes. The length of the name should correspond to the size of its scope. For example, global variable should have long and self-descriptive names.
+```javascript
+export const GEO_TARGET_TYPE_COUNTRY = 'Finland';
+export const UNKNOWN_TYPE = 'unknown';
+export const UNKNOWN_TYPE_NATIVE_SYNONYM = 'other'
+```
+
+Local variable of a short method or small block should have short names. Names can be short as single letters; however, these should only be used in certain circumstances:
+- Counter variable for simple for loops
+- Exception instances in catch blocks
+- Arguments of very short functions
+```javascript
+const len = domainNameList.length;
+for(let i = 0; i < len; i++>) { ... }
+```
+
+### `Grammar rule`: 
+Grammar provides a foundation for readability. It helps ensure that the proper message is being expressed.
+- Class and Object Names
+  - Use noun phrase names
+  - Don't use verbs
+- Method Names
+  - Use verb phrase names
+- Solution Domains : use programming terms such as ( merge sort )
+  - Computer science term
+  - Algorithm names
+  - Design pattern names
+- Problem Domains ( sorting of data)
+  - Use simple terms that clearly identify the problem
+  - Avoid programmer language
+### conclusion
+Naming is critical part of keeping code clean. Coder user specific rules for naming that support clean coding practices. These rules give expectations related to consistency, clarity and searchability. They also help to define the rules of grammar and proper length of names. Each of these expectations support the overall goal of making code easy to ready, maintain and reuse.
+
+
+Reference: 
+- [Code story Garage service](https://codingstories.io/story/https:%2F%2Fgitlab.com%2Fcodingstories%2Fgarage-service-story-js?lis_result_sourcedid=course-v1:EPAM%2BCC2.0%2B04_21:elearn.epam.com-25131e97d1c14e2996d1157359257951:3695c092dcf0f9c911e1770e827cdcd6)
