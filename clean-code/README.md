@@ -24,6 +24,8 @@ Sometimes you just trying to complete the task on time and you knows that is not
 
 - `Clean code is well thought out`: There are not confusing workarounds in clean code. Developers spend time finding good solutions that keep the language simple and easy to follow.
 
+
+# Naming 
 ## Naming general Rules 
 - `Reveal intention`: The name of a variable, function or class should tell you three things: Why it exists, what it does, and how it is used. if a name require a comment, then the name does not reveal its intent. e.g.
 ```javaScript
@@ -112,5 +114,106 @@ Grammar provides a foundation for readability. It helps ensure that the proper m
 Naming is critical part of keeping code clean. Coder user specific rules for naming that support clean coding practices. These rules give expectations related to consistency, clarity and searchability. They also help to define the rules of grammar and proper length of names. Each of these expectations support the overall goal of making code easy to ready, maintain and reuse.
 
 
-Reference: 
+
+## Reference: 
 - [Code story Garage service](https://codingstories.io/story/https:%2F%2Fgitlab.com%2Fcodingstories%2Fgarage-service-story-js?lis_result_sourcedid=course-v1:EPAM%2BCC2.0%2B04_21:elearn.epam.com-25131e97d1c14e2996d1157359257951:3695c092dcf0f9c911e1770e827cdcd6)
+
+# Functions
+Function can have different names depending on the coding language being used. The might also be called methods, sub-routines, or procedures.
+
+## Function should be small
+Function should be small -- you have heard that before. "Small" is subjective, though, and it means different things to different people. So, how small is "small?".
+
+Attempts to standardize function size started in the 1980s. Programmer were encourage to fit their functions withing a single screen. which was around 24 lines. Fast forward today, where monitors are larger and font-size is adjustable, a programmer can easly fit 100+ lines on a single screen. The "screen size" did not age well, but what about a 24-line standard?
+
+Robert C. Martin, renowned software engineer and author of several books on software development, suggests functions should be fewer than 20 lines.
+
+> "The fist rule of function is that they should be small. The second rule of functions is that they should be smaller than that. Function should not be 100 lines long. Function should hardly every be 20 lines long." - ROBERT C. MARTIN, CLEAN CODE
+
+An 18-line function is obviously cleaner than one with 80 lines, but is it small enough? it depends.
+
+You can do a quick assessment of a function by asking the following questions
+
+- Is it easy to read?
+- Can you easily navigate the flow of the program?
+- Does it adhere to the DRY (do not repeat yourself) principle?
+- Is it easy to test?
+
+## impact on blocks and indenting
+If you are going to be a successful in writing small functions, you need to understand how blocks and indents are going to be impacted.
+
+Blocks within "if" statement, "else" statements, and while statements, for example, should only be one line. That line could be a function call.
+
+Additionally, a five-line function is incapable of holding a nested structure, so the indent level shouldn't exceed one or two. That means your function can only do one thing and that is the next guideline.
+
+One way to double-check that your function is only doing one thing is to start extracting. If you can extract another function, your function is doing more than one thing.
+
+## Function should have one level of abstraction
+Code that does one thing does not have mixed levels of abstraction. 
+
+It should read as top-down narrative where every function is followed by those at the next level of abstraction. Robert C. Martin calls this "The Stepdown Rule"
+
+### The following code is violate one level of abstraction rule
+- A loop which acts upon the whole result set
+- A loop body which converts a single entity to a DTO.
+```javascript
+function buildResult(resultSet) {
+  const result = [];
+  for(let entity of resultSet) {
+    const dto = new PersonDto();
+    dto.setName(entity.getName());
+    dto.setGender(entity.getGender());
+    dto.setAge(computeAage(entity.getBirthday()));
+    result.push(dto);
+  }
+  return result;
+}
+```
+### The following code is the correct version of above function which complies with level of abstraction rule
+```javascript
+function buildResult(resultSet) {
+  const result = [];
+  for(let entity of resultSet) {
+    result.push(convertToDTO(entity));
+  }
+  return result;
+}
+
+function convertToDTO(entity) {
+  const dto = new PersonDto();
+  dto.setName(entity.getName());
+  dto.setGender(entity.getGender());
+  dto.setAge(computeAage(entity.getBirthday()));
+  return dto;
+}
+```
+
+## Functions Should be a command or a query -- not both
+Command-Query Separation is a principle that state function should either "do" something, a command, or "answer" something, a query. If your function is changing the state of an object and returning information about that object -- that can be confusing.
+
+The solution is to separate the command from query, by creating two functions from the original function.
+
+### The following function leads to odd statements like you see. This function is being used in a condition expression and that can be very confusing to reads.
+```javascript
+function set(attribute, value){ ... }
+
+if(set('user', 'guest'))
+```
+
+### The following code is the solution of above code
+```javascript
+function attributeExists(attribute) { ... }
+function setAttribute(attribute, value) { ... }
+
+if(attributeExists('user')) {
+  setAttribute('user', 'guest')
+}
+```
+
+## Function should have descriptive names
+Do not forget that your code should tell a good stories and good stories use descriptive words -- or names in this case. The function nae should clearly describe exactly what the function does.
+
+You are not stuck with the first name you choose. Feel free to experiment with different names and read through your code before you make a final decision.
+
+Choosing descriptive names will help clarify the design of the module in your own mind and will enhance the storytelling. Remember, though consistency is key.
+
