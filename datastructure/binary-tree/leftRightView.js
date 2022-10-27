@@ -58,14 +58,26 @@ function buildTree() {
 
    node8.left = node9;
 
+   /**
+    *            1
+    *         /      \
+    *        2         3
+    *      /  \       / \
+    *     4    5     7   8
+    *           \       /
+    *            6     9 
+    * 
+    */
+
    const tree = new Tree();
    let output = []
-   tree.leftView(node1.left, 1, output);
+   tree.leftView(node1.left, 1, output); 
+   console.log('leftView', output); // [2, 4, 6]
    output.reverse();
    tree.maxLevel = 0;
    tree.rightView(node1, 1, output);
 
-   console.log(output);
+   console.log(output); // [6,4,2,1,3,8,9]
 
 }
 
