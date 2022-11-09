@@ -1,9 +1,9 @@
 # Sorting algorithms
 There are numbers of sorting algorithm but listing only a few of those here
-- [ ] Bubble sort
-- [ ] Insertion sort
+- [x] Bubble sort
+- [x] Insertion sort
 - [ ] Selection sort
-- [ ] Merge sort
+- [x] Merge sort
 - [ ] Quick sort
 
 ## Reference
