@@ -18,6 +18,6 @@
     "node-json-db": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "uuid": "^3.3.3",
-    "validator": "^12.0.0"
+    "validator": "^13.7.0"
   }
 }
