@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:jsx-ally/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "rules": {
+    "no-console": 1,
+    "quotes": ["error", "single"],
+    "jsx-quotes":  ["error", "prefer-double"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "worn",
+    "jest/valid-expect": "error"
+  },
+  "plugins": [
+    "react", "import", "jsx-ally", "jest"
+  ],
+  "parseOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "allowImportExportEverywhere": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "path": ["src"]
+      }
+    },
+    "jest": {
+      "version": 26
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
