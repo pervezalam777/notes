@@ -1,0 +1,16 @@
+{
+  "semi": false,
+  "tabWidth":4,
+  "printWidth": 80,
+  "singleQuote": true,
+  "importOrder": [
+    "^react(.*)",
+    "<THIRD_PARTY_MODULES>",
+    "@/(.*)",
+    "^(assets|components|contexts|hooks|pages|services)",
+    "^(?!./).*(scss|css)$",
+    "^[./]",
+    "^(App)"
+  ],
+  "importOrderSeparation": true
+}
