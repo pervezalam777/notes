@@ -26,3 +26,9 @@
 - [ ] yarn install --frozen-lockfile
 - [ ] .eslintrc
   - [ ]
+
+- [ ] Write documentation on 
+  - [ ] Testing setup on project
+  - [ ] Husky setup
+  - [ ] About environment variables
+  - [ ] ESLint and prettier
