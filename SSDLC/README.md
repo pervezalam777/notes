@@ -145,6 +145,30 @@ By accepting that attacks pass through defenses and adding detection to your pro
 |Security Tests			          |                    |                    |I,C	               |I,C	        |A,R		            |     |R	        |R	               |I,C               |
 
 
+# Cybersecurity Maturity Models
+A set of rules that describe possible actions to improve security, helping a team determine missing activities and activities that require improvements.
+
+In addition, maturity models help your team:
+
+- Identify opportunities for enhancing security
+- Evaluate your current level
+- Take steps to bring security to the next level
+
+## Building Security in Maturity Model (BSIMM)
+Building Security in Maturity Model (BSIMM) is a study of existing software security initiatives across various industries. By providing a model of security activities that different companies implement, BSIMM lets you identify the common standards as well as unique practices in SSDLC.
+
+## The Software Assurance Maturity Model (SAMM)
+The Software Assurance Maturity Model (SAMM) is an open framework that pictures the current security situation in your project/organization and helps formulate and implement a software security strategy tailored to specific risks.
+
+Both BSIMM and SAMM are similar in their approaches to evaluation. They provide an understanding of what can be introduced and improved from a security standpoint. Depending on need, you may use SAMM to measure your organization’s past and present security practices to track improvements and determine a future course of action or use BSIMM to compare your organization’s security practices with those of other companies and industries.
+
+## Security Development Lifecycle (SDL)
+Security Development Lifecycle (SDL) is the most common maturity model that introduces security and privacy considerations throughout all development phases. It helps developers build highly secure software, address security compliance requirements, and reduce development costs. SDL (or SSDLC) supports:
+
+Inspection of the current maturity level (Level One, Level Two, or Level Three)
+Project transformation (instructions on how to move to the next level)
+Guidance on how to implement Secure SDLC practices
+
 # Best Practices for Secure SDLC
 - Adopt and publish a list of secure coding practices.
 - Designate a security champion for each project.
@@ -164,6 +188,7 @@ By accepting that attacks pass through defenses and adding detection to your pro
 - DAST: Dynamic Application Security Testing
 - CI/CD: Continuous Integration and Continuous Delivery/deployment
 - DevSecOps: A modern approach for organizing CI/CD processes to improve security in SDLC
+- BSIMM: Building Security in Maturity Model
 
 # Ref
 - [OWASP Risk Rating Calculator](https://owasp-risk-rating.com/?vector=(SL:5/M:0/O:0/S:0/ED:3/EE:3/A:4/ID:1/LC:0/LI:0/LAV:0/LAC:0/FD:7/RD:5/NC:5/PV:5))
